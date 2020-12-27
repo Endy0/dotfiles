@@ -27,3 +27,6 @@ alias cp='cp -i'
 
 # ssh-agentの自動起動
 eval $(ssh-agent) > /dev/null
+
+# 画面表示ロック機能を無効化
+stty stop undef
