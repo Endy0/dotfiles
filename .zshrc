@@ -24,6 +24,10 @@ alias ll='ls -lh'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+# Macにはtacコマンドが無いためエイリアス追加
+if [ ! $(which tac > /dev/null) ]; then
+  alias tac='tail -r'
+fi
 
 # ssh-agentの自動起動
 eval $(ssh-agent) > /dev/null
