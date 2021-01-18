@@ -24,6 +24,13 @@ alias ll='ls -lh'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+# Macにはtacコマンドが無いためエイリアス追加
+if [ ! $(which tac > /dev/null) ]; then
+  alias tac='tail -r'
+fi
 
 # ssh-agentの自動起動
 eval $(ssh-agent) > /dev/null
+
+# 画面表示ロック機能を無効化
+stty stop undef
