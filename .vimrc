@@ -127,6 +127,7 @@ set smartindent
 " 配色
 "------------------------------
 syntax on
+colorscheme molokai
 
 "------------------------------
 " スクロール
