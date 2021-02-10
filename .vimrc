@@ -146,6 +146,8 @@ set scrolloff=8
 set sidescrolloff=16
 " 左右のスクロール単位
 set sidescroll=1
+" Ctrl-d, Ctrl-uでスクロールする行数を指定
+set scroll=10
 
 "------------------------------
 " コマンド補完
