@@ -34,3 +34,6 @@ eval $(ssh-agent) > /dev/null
 
 # 画面表示ロック機能を無効化
 stty stop undef
+
+# ビープ音を無効にする
+setopt no_beep
