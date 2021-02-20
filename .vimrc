@@ -167,7 +167,5 @@ set history=1000
 "------------------------------
 " Yを行末までのヤンクにする
 nnoremap Y y$
-" Tabキーでウィンドウを移動できるようにする
-nnoremap <tab> <C-w><C-w>
 " ハイライトを消す(<silent>は実行するコマンドがコマンドラインに表示されないようにする)
 nnoremap <silent> <ESC><ESC> :noh<CR>
