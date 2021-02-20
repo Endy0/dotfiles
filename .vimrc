@@ -89,6 +89,7 @@ set cursorcolumn
 set laststatus=2
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set showcmd
+
 " 対応する括弧に僅かの間ジャンプする
 set showmatch matchtime=1
 " Vimの%を拡張する vim6から含まれているが初期状態では無効化されている
@@ -114,6 +115,10 @@ colorscheme desert
 set confirm
 " 保存されていないファイルが有るときでも別のファイルを開く
 set hidden
+" バックアップファイル(ファイル名に~がついたファイル)を作らない
+set nobackup
+" 編集中の保存していないファイルのバックアップを作らない
+set nowritebackup
 
 "------------------------------
 " インデント
