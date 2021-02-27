@@ -37,3 +37,8 @@ stty stop undef
 
 # ビープ音を無効にする
 setopt no_beep
+
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
+export XDG_DATA_HOME=~/.local/share
