@@ -173,5 +173,10 @@ nnoremap <silent> <ESC><ESC> :noh<CR>
 "------------------------------
 " autocmd
 "------------------------------
-" jsonc comment syntax enable
-autocmd Filetype json syntax match Comment +\/\/.\+$+
+augroup my_vimrc
+  autocmd!
+  " jsonc comment syntax enable
+  autocmd Filetype json syntax match Comment +\/\/.\+$+
+  " Help Vim recognize *.sbt and *.sc as Scala files
+  autocmd BufRead,BufNewFile *.sbt,*.sc set filetype=scala
+augroup END
