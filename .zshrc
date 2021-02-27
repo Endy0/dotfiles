@@ -42,3 +42,6 @@ setopt no_beep
 export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
+
+# Java
+export JAVA_HOME=$(readlink -f $(which java))
