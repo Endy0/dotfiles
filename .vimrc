@@ -169,3 +169,9 @@ set history=1000
 nnoremap Y y$
 " ハイライトを消す(<silent>は実行するコマンドがコマンドラインに表示されないようにする)
 nnoremap <silent> <ESC><ESC> :noh<CR>
+
+"------------------------------
+" autocmd
+"------------------------------
+" jsonc comment syntax enable
+autocmd Filetype json syntax match Comment +\/\/.\+$+
