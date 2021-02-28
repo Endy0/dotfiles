@@ -105,6 +105,9 @@ set listchars=tab:>-
 set listchars=trail:-
 " 行末を可視化する
 set listchars=eol:<
+" ビープ音を消す
+set vb t_vb=
+set noerrorbells
 " カラースキーム
 colorscheme desert
 
