@@ -16,6 +16,12 @@ RPROMPT='[%~]'
 # vim系
 alias v='vim'
 alias vi='vim'
+alias nv='nvim'
+if type "nvim" > /dev/null 2>&1; then
+  alias view='nvim -R'
+else
+  alias view='vim -R'
+fi
 # ls系
 alias ls='ls -G'
 alias la='ls -a'
@@ -44,4 +50,4 @@ export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
 
 # Java
-export JAVA_HOME=$(readlink -f $(which java))
+export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
