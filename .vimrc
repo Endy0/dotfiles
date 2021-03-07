@@ -7,20 +7,24 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+if dein#load_state($HOME . '/.config/nvim/dein')
+
+  " dein cache directory
+  let g:dein#cache_directory = $HOME . '/.cache/dein/'
+
+  " dein begin
+  call dein#begin($HOME . '/.config/nvim/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add($HOME . '/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here like this:
 
   " tomlファイルのパスを記載
-  let s:toml_dir  = $HOME . '/.vim/rc'
+  let s:toml_dir  = $HOME . '/.config/nvim/dein/toml'
   let s:toml      = s:toml_dir . '/dein.toml'
   let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
 
