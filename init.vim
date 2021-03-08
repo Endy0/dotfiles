@@ -13,7 +13,7 @@ set runtimepath+=$HOME/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state($HOME . '/.config/nvim/dein')
 
   " dein cache directory
-  let g:dein#cache_directory = $HOME . '/.cache/dein/'
+  let g:dein#cache_directory = $HOME . '/.cache/dein'
 
   " dein begin
   call dein#begin($HOME . '/.config/nvim/dein')
