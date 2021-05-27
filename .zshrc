@@ -36,7 +36,10 @@ if [ ! $(which tac > /dev/null) ]; then
 fi
 
 # ssh-agentの自動起動
-eval $(ssh-agent) > /dev/null
+# WSLなら、Windows側のOpenSSHを利用する
+if [ -e /mnt/c/Users/yusuke/Application/ssh-agent-wsl/ssh-agent-wsl ]; then
+  eval $(/mnt/c/Users/yusuke/Application/ssh-agent-wsl/ssh-agent-wsl -r) > /dev/null
+fi
 
 # 画面表示ロック機能を無効化
 stty stop undef
