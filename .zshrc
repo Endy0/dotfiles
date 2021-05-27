@@ -27,7 +27,7 @@ else
   alias view='vim -R'
 fi
 # ls系
-alias ls='ls -G'
+alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
 # 処理確認
