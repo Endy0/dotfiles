@@ -14,8 +14,8 @@ RPROMPT='[%~]'
 
 ##### alias #####
 # vim系
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
 alias nv='nvim'
 if type "nvim" > /dev/null 2>&1; then
   alias view='nvim -R'
