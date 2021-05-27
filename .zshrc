@@ -14,14 +14,16 @@ RPROMPT='[%~]'
 
 ##### alias #####
 # vim系
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias n='nvim'
-alias nv='nvim'
 if type "nvim" > /dev/null 2>&1; then
+  alias v='nvim'
+  alias vi='nvim'
+  alias vim='nvim'
+  alias n='nvim'
+  alias nv='nvim'
   alias view='nvim -R'
 else
+  alias v='vim'
+  alias vi='vim'
   alias view='vim -R'
 fi
 # ls系
