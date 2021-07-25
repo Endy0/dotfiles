@@ -5,10 +5,10 @@ export LANG=ja_JP.UTF-8
 declare OS
 case "$(uname)"; in
   Linux)
-    OS=Linux
+    OS="Linux"
   ;;
   Darwin)
-    OS=macOS
+    OS="macOS"
   ;;
 esac
 
@@ -38,7 +38,8 @@ else
   alias view='vim -R'
 fi
 # ls系
-if [ $OS == "Linux" ]; then
+if [ ${OS} = "Linux" ]; then
+  echo hoge
   alias ls='ls --color=auto'
 fi
 alias la='ls -a'
