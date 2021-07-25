@@ -1,6 +1,17 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
+# OS
+declare OS
+case "$(uname)"; in
+  Linux)
+    OS=Linux
+  ;;
+  Darwin)
+    OS=macOS
+  ;;
+esac
+
 # zsh-completions(補完機能)の設定
 if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
@@ -27,7 +38,9 @@ else
   alias view='vim -R'
 fi
 # ls系
-alias ls='ls --color=auto'
+if [ $OS == "Linux" ]; then
+  alias ls='ls --color=auto'
+fi
 alias la='ls -a'
 alias ll='ls -lh'
 # 処理確認
@@ -37,6 +50,11 @@ alias cp='cp -i'
 # Macにはtacコマンドが無いためエイリアス追加
 if [ ! $(which tac > /dev/null) ]; then
   alias tac='tail -r'
+fi
+
+# Verilator環境
+if [ -d /usr/local/verilator/v4.202/bin/ ]; then
+  export PATH=$PATH:/usr/local/verilator/v4.202/bin
 fi
 
 # ssh-agentの自動起動
