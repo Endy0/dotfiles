@@ -39,7 +39,6 @@ else
 fi
 # ls系
 if [ ${OS} = "Linux" ]; then
-  echo hoge
   alias ls='ls --color=auto'
 fi
 alias la='ls -a'
