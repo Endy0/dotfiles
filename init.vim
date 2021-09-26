@@ -1,53 +1,64 @@
 "------------------------------
 " dein.vim
 "------------------------------
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
-
-" Required:
-set runtimepath+=$HOME/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state($HOME . '/.config/nvim/dein')
-
-  " dein cache directory
-  let g:dein#cache_directory = $HOME . '/.cache/dein'
-
-  " dein begin
-  call dein#begin($HOME . '/.config/nvim/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add($HOME . '/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-
-
-  " tomlファイルのパスを記載
-  let s:toml_dir  = $HOME . '/.config/nvim/dein/toml'
-  let s:toml      = s:toml_dir . '/dein.toml'
-  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
-
-  " tomlファイルをキャッシュ
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
+" dein.vim settings {{{
+" install dir {{{
+let s:dein_dir = expand('~/.local/share/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" }}}
+
+" dein installation check {{{
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . s:dein_repo_dir
+endif
+" }}}
+
+" begin settings {{{
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " .toml file
+  let s:rc_dir = expand('~/.config/dein')
+  if !isdirectory(s:rc_dir)
+    call mkdir(s:rc_dir, 'p')
+  endif
+  let s:toml = s:rc_dir . '/dein.toml'
+  let s:lazy_toml = s:rc_dir . '/dein_lazy.toml'
+
+  " read toml and cache
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " end settings
+  call dein#end()
+  call dein#save_state()
+endif
+" }}}
+
+" plugin installation check {{{
 if dein#check_install()
   call dein#install()
 endif
+" }}}
 
-"End dein Scripts-------------------------
-"
+" plugin remove check {{{
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
+" }}}
+" }}}
+
 "------------------------------
 " エンコーディング
 "------------------------------
