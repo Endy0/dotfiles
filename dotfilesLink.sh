@@ -11,4 +11,4 @@ mkdir -p ~/.config/dein
 ln -sf ~/dotfiles/init.vim ~/.config/nvim
 ln -sf ~/dotfiles/dein.toml ~/.config/dein
 ln -sf ~/dotfiles/dein_lazy.toml ~/.config/dein
-ln -sf ~/dotfiles/coc-setting.vim ~/.config/nvim/dein/toml
+ln -sf ~/dotfiles/coc-setting.vim ~/.config/dein
