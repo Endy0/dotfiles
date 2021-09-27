@@ -4,8 +4,6 @@
 if &compatible
   set nocompatible               " Be iMproved
 endif
-filetype plugin indent on
-syntax enable
 
 " dein.vim settings {{{
 " install dir {{{
@@ -43,6 +41,9 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 " }}}
+
+filetype plugin indent on
+syntax enable
 
 " plugin installation check {{{
 if dein#check_install()
