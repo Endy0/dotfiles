@@ -103,6 +103,8 @@ set cursorline
 set cursorcolumn
 " ステータス行を常に表示
 set laststatus=2
+" ステータス行にfiletypeを表示
+set statusline=%y
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set showcmd
 
