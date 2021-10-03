@@ -203,3 +203,10 @@ augroup my_vimrc
   " Help Vim recognize *.sbt and *.sc as Scala files
   autocmd BufRead,BufNewFile *.sbt,*.sc set filetype=scala
 augroup END
+
+"------------------------------
+" vim-airline用設定
+"------------------------------
+let g:airline_theme='iceberg'
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1

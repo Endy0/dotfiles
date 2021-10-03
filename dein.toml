@@ -9,3 +9,11 @@ hook_add = 'source ~/.config/coc/coc-setting.vim'
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
 
+[[plugins]]
+repo = 'vim-airline/vim-airline.git'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes.git'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
