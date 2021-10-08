@@ -191,7 +191,10 @@ let mapleader = "\<Space>"
 " Yを行末までのヤンクにする
 nnoremap Y y$
 " ハイライトを消す(<silent>は実行するコマンドがコマンドラインに表示されないようにする)
-nnoremap <silent> <ESC><ESC> :noh<CR>
+nnoremap <silent> <ESC><ESC> :<C-u>noh<CR>
+" 表示するバッファの変更を<C-j>, <C-k>に変更
+nnoremap <silent> <C-j> :<C-u>bprev<CR>
+nnoremap <silent> <C-k> :<C-u>bnext<CR>
 
 "------------------------------
 " autocmd
