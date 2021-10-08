@@ -197,6 +197,8 @@ nnoremap <silent> <C-j> :<C-u>bprev<CR>
 nnoremap <silent> <C-k> :<C-u>bnext<CR>
 " <Space>q で現在表示中のバッファを閉じる
 nnoremap <silent> <leader>q :<C-u>bd<CR>
+" <Space>n でNERDTreeウィンドウの表示/非表示切り替え
+nnoremap <silent> <leader>n :<C-u>NERDTreeToggle<CR>
 
 "------------------------------
 " autocmd
