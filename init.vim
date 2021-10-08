@@ -195,6 +195,8 @@ nnoremap <silent> <ESC><ESC> :<C-u>noh<CR>
 " 表示するバッファの変更を<C-j>, <C-k>に変更
 nnoremap <silent> <C-j> :<C-u>bprev<CR>
 nnoremap <silent> <C-k> :<C-u>bnext<CR>
+" <Space>q で現在表示中のバッファを閉じる
+nnoremap <silent> <leader>q :<C-u>bd<CR>
 
 "------------------------------
 " autocmd
