@@ -13,3 +13,4 @@ ln -sf ~/dotfiles/dein.toml ~/.config/dein
 ln -sf ~/dotfiles/dein_lazy.toml ~/.config/dein
 mkdir -p ~/.config/coc
 ln -sf ~/dotfiles/coc-setting.vim ~/.config/coc
+ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
