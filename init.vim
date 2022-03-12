@@ -217,3 +217,9 @@ augroup END
 let g:airline_theme='iceberg'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
+
+"------------------------------
+" Neovim用仮想環境にpathを通す
+"------------------------------
+let g:python3_host_prog = expand('~/.local/share/nvim-python3/bin/python3')
+let g:python_host_prog = expand('~/.local/share/nvim-python2/bin/python2')
