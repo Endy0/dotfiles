@@ -1,5 +1,10 @@
 [user]
-	name = Yusuke Sonoda
-	email = y.snd12p@gmail.com
+  name = Yusuke Sonoda
+  email = y.snd12p@gmail.com
 [core]
-	editor = nvim
+  editor = nvim
+[alias]
+  co = checkout
+  cm = commit
+  st = status -s
+  lg = log --pretty=format:'%h - %ad : %s' --graph
