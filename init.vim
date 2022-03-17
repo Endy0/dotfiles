@@ -188,6 +188,10 @@ set history=1000
 "------------------------------
 " <Leader>をspaceに割当て
 let mapleader = "\<Space>"
+" US配列向けキーボード向けに;にコマンドモード割当
+nnoremap ; :
+" ;での文字検索を'に割当
+nnoremap ' ;
 " Yを行末までのヤンクにする
 nnoremap Y y$
 " ハイライトを消す(<silent>は実行するコマンドがコマンドラインに表示されないようにする)
