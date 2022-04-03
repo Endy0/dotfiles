@@ -68,6 +68,8 @@ stty stop undef
 
 # ビープ音を無効にする
 setopt no_beep
+# lessのビープ音を消す&色のエスケープシーケンスを解釈して色付きで出力
+export LESS=-Rq
 
 # XDG Base Directory Specification
 export XDG_CONFIG_HOME=~/.config
