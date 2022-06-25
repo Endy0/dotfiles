@@ -39,10 +39,6 @@ fi
 autoload -U compinit
 compinit -u
 
-# prompt
-PROMPT='[%n@%m]$ '
-RPROMPT='[%~]'
-
 ##### alias #####
 # vim系
 if type "nvim" > /dev/null 2>&1; then
@@ -87,11 +83,6 @@ export LESS=-Rq
 
 # Java
 export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
-
-# Node.js version manager
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Python version manager
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
