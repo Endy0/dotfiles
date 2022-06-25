@@ -39,6 +39,9 @@ fi
 autoload -U compinit
 compinit -u
 
+# 入力なしの状態でCtrl-dを押してもログアウトしないようにする
+set -o ignoreeof
+
 ##### alias #####
 # vim系
 if type "nvim" > /dev/null 2>&1; then
