@@ -1,16 +1,13 @@
-#!/bin/sh
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-# mkdir -p ~/.vim/rc
-# ln -sf ~/dotfiles/dein.toml ~/.vim/rc
-# ln -sf ~/dotfiles/dein_lazy.toml ~/.vim/rc
-# ln -sf ~/dotfiles/coc-setting.vim ~/.vim/rc
-mkdir -p ~/.config/dein
-ln -sf ~/dotfiles/init.vim ~/.config/nvim
-ln -sf ~/dotfiles/dein.toml ~/.config/dein
-ln -sf ~/dotfiles/dein_lazy.toml ~/.config/dein
-mkdir -p ~/.config/coc
-ln -sf ~/dotfiles/coc-setting.vim ~/.config/coc
-ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
+#!/bin/bash
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+CFGDIR=${XDG_CONFIG_HOME:=$HOME/.config}
+
+mkdir -p ${CFGDIR}/nvim ${CFGDIR}/dein ${CFGDIR}/coc
+ln -sf ${SCRIPT_DIR}/.vimrc ~/.vimrc
+ln -sf ${SCRIPT_DIR}/.zshrc ~/.zshrc
+ln -sf ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
+ln -sf ${SCRIPT_DIR}/.gitconfig ~/.gitconfig
+ln -sf ${SCRIPT_DIR}/init.vim ~/.config/nvim
+ln -sf ${SCRIPT_DIR}/dein.toml ~/.config/dein
+ln -sf ${SCRIPT_DIR}/dein_lazy.toml ~/.config/dein
+ln -sf ${SCRIPT_DIR}/coc-setting.vim ~/.config/coc

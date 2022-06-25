@@ -7,7 +7,11 @@ endif
 
 " dein.vim settings {{{
 " install dir {{{
-let s:dein_dir = expand('~/.local/share/dein')
+if $XDG_DATA_HOME != ''
+  let s:dein_dir = expand('$XDG_DATA_HOME/dein')
+else
+  let s:dein_dir = expand('$HOME/.local/share/dein')
+endif
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 " }}}
 
@@ -25,7 +29,11 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   " .toml file
-  let s:rc_dir = expand('~/.config/dein')
+  if $XDG_CONFIG_HOME != ''
+    let s:rc_dir = expand('$XDG_CONFIG_HOME/dein')
+  else
+    let s:rc_dir = expand('$HOME/.config/dein')
+  endif
   if !isdirectory(s:rc_dir)
     call mkdir(s:rc_dir, 'p')
   endif
@@ -110,9 +118,6 @@ set showcmd
 
 " 対応する括弧に僅かの間ジャンプする
 set showmatch matchtime=1
-" Vimの%を拡張する vim6から含まれているが初期状態では無効化されている
-source $VIMRUNTIME/macros/matchit.vim
-let b:match_words = "def:end,class:end"
 " 画面端で行を折り返さない
 set nowrap
 " 不可視文字を可視化する

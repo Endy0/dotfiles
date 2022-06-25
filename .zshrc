@@ -1,16 +1,36 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
-# OS
-declare OS
-case "$(uname)"; in
-  Linux)
-    OS="Linux"
-  ;;
-  Darwin)
-    OS="macOS"
-  ;;
-esac
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
+export XDG_DATA_HOME=~/.local/share
+
+# zplug
+ZPLUG_HOME="${XDG_DATA_HOME}/zplug"
+source "${ZPLUG_HOME}/init.zsh"
+
+# theme
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check ; then
+  zplug install
+fi
+
+# Source plugins and add commands to $PATH
+# zplug load --verbose
+zplug load
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # zsh-completions(補完機能)の設定
 if [ -e /usr/local/share/zsh-completions ]; then
@@ -38,19 +58,13 @@ else
   alias view='vim -R'
 fi
 # ls系
-if [ ${OS} = "Linux" ]; then
-  alias ls='ls --color=auto'
-fi
+alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
 # 処理確認
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-# Macにはtacコマンドが無いためエイリアス追加
-if [ ! $(which tac > /dev/null) ]; then
-  alias tac='tail -r'
-fi
 
 # Verilator環境
 if [ -d /usr/local/verilator/v4.202/bin/ ]; then
@@ -71,47 +85,8 @@ setopt no_beep
 # lessのビープ音を消す&色のエスケープシーケンスを解釈して色付きで出力
 export LESS=-Rq
 
-# XDG Base Directory Specification
-export XDG_CONFIG_HOME=~/.config
-export XDG_CACHE_HOME=~/.cache
-export XDG_DATA_HOME=~/.local/share
-
 # Java
 export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
-
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-
-zinit depth"1" light-mode for romkatv/powerlevel10k
-### End of Zinit's installer chunk
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # Node.js version manager
 export NVM_DIR="$HOME/.config/nvm"
@@ -121,4 +96,5 @@ export NVM_DIR="$HOME/.config/nvm"
 # Python version manager
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export PATH="${PYENV_ROOT}/bin:$PATH"
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
+
