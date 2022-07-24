@@ -223,9 +223,9 @@ augroup END
 "------------------------------
 " vim-airline用設定
 "------------------------------
-let g:airline_theme='iceberg'
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
+" let g:airline_theme='iceberg'
+" let g:airline#extensions#tabline#enabled=1
+" let g:airline_powerline_fonts=1
 
 "------------------------------
 " Neovim用仮想環境にpathを通す
