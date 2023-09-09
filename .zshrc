@@ -13,6 +13,8 @@ source "${ZPLUG_HOME}/init.zsh"
 # theme
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 
+zplug "mollifier/anyframe"
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check ; then
   zplug install
@@ -36,8 +38,12 @@ fi
 if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
-autoload -U compinit
+autoload -Uz compinit
 compinit -u
+
+# cdrコマンドのautoload
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
 # 入力なしの状態でCtrl-dを押してもログアウトしないようにする
 set -o ignoreeof
