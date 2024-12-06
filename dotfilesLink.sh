@@ -11,3 +11,4 @@ ln -sf ${SCRIPT_DIR}/init.vim ~/.config/nvim
 ln -sf ${SCRIPT_DIR}/dein.toml ~/.config/dein
 ln -sf ${SCRIPT_DIR}/dein_lazy.toml ~/.config/dein
 ln -sf ${SCRIPT_DIR}/coc-setting.vim ~/.config/coc
+ln -snf ${SCRIPT_DIR}/bin ~/bin
