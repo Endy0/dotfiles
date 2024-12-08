@@ -7,8 +7,12 @@ export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
 
 # zplug
+# https://github.com/zplug/zplug
 ZPLUG_HOME="${XDG_DATA_HOME}/zplug"
 source "${ZPLUG_HOME}/init.zsh"
+
+# zplug自体をzplugで管理する
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # theme
 zplug "romkatv/powerlevel10k", as:theme, depth:1
@@ -71,6 +75,9 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
+# 自作コマンドディレクトリに$PATHを通す
+export PATH=$PATH:$HOME/bin
+
 # Verilator環境
 if [ -d /usr/local/verilator/v4.202/bin/ ]; then
   export PATH=$PATH:/usr/local/verilator/v4.202/bin
@@ -97,4 +104,3 @@ export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export PATH="${PYENV_ROOT}/bin:$PATH"
 # eval "$(pyenv init --path)"
-
