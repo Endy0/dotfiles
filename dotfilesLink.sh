@@ -5,6 +5,7 @@ CFGDIR=${XDG_CONFIG_HOME:=$HOME/.config}
 mkdir -p ${CFGDIR}/nvim ${CFGDIR}/dein ${CFGDIR}/coc
 ln -sf ${SCRIPT_DIR}/.vimrc ~/.vimrc
 ln -sf ${SCRIPT_DIR}/.zshrc ~/.zshrc
+ln -sf ${SCRIPT_DIR}/plugins.toml ${XDG_CONFIG_HOME}/sheldon/plugins.toml
 ln -sf ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
 ln -sf ${SCRIPT_DIR}/.gitconfig ~/.gitconfig
 ln -sf ${SCRIPT_DIR}/init.vim ~/.config/nvim
