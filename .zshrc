@@ -6,30 +6,11 @@ export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
 
+# 自作コマンドディレクトリに$PATHを通す
+export PATH=$PATH:$HOME/bin
+
 # sheldonをロード
 eval "$(sheldon source)"
-
-# zplug
-# https://github.com/zplug/zplug
-ZPLUG_HOME="${XDG_DATA_HOME}/zplug"
-source "${ZPLUG_HOME}/init.zsh"
-
-# zplug自体をzplugで管理する
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-
-# theme
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-
-zplug "mollifier/anyframe"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check ; then
-  zplug install
-fi
-
-# Source plugins and add commands to $PATH
-# zplug load --verbose
-zplug load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -77,9 +58,6 @@ alias ll='ls -lh'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-
-# 自作コマンドディレクトリに$PATHを通す
-export PATH=$PATH:$HOME/bin
 
 # Verilator環境
 if [ -d /usr/local/verilator/v4.202/bin/ ]; then
