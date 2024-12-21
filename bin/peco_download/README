@@ -1,5 +1,0 @@
-apt installでインストールできるpecoのバージョン(=0.5.1)だとtmuxで動かなかった
-0.5.11だと動く
-バイナリファイルをダウンロードして$PATHに置くだけでいい
-
-https://github.com/peco/peco/releases

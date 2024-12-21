@@ -14,6 +14,9 @@ shell = "zsh"
 
 [plugins]
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 # https://github.com/romkatv/powerlevel10k
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
@@ -25,6 +28,14 @@ github = "zsh-users/zsh-syntax-highlighting"
 # https://github.com/zsh-users/zsh-autosuggestions
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+
+# https://github.com/peco/peco
+[plugins.peco]
+github = "peco/peco"
+apply = ['peco_install']
+
+[templates]
+peco_install = './install_peco.sh > /dev/null 2>&1'
 
 # For example:
 #
