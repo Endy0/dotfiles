@@ -9,6 +9,11 @@ vim.opt.ruler = true
 vim.opt.cursorline = true
 -- カーソルのある列を強調
 vim.opt.cursorcolumn = true
+-- 画面端で行を折り返さない
+vim.opt.wrap = false
+-- 可視化
+vim.opt.list = true
+vim.opt.listchars = {tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%'}
 
 -----------------------------
 -- インデント
