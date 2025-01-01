@@ -15,3 +15,4 @@ ln -sf ${SCRIPT_DIR}/dein.toml ${CFGDIR}/dein
 ln -sf ${SCRIPT_DIR}/dein_lazy.toml ${CFGDIR}/dein
 ln -sf ${SCRIPT_DIR}/coc-setting.vim ${CFGDIR}/coc
 ln -snf ${SCRIPT_DIR}/bin ~/bin
+ln -snf ${SCRIPT_DIR}/nvim_plugins ${CFGDIR}/nvim/lua/plugins

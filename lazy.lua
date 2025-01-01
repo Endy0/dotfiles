@@ -23,20 +23,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
-require("lazy").setup({
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme tokyonight]])
-    end,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    config = true
-  }
-})
+require("lazy").setup("plugins")
 -- require("lazy").setup({
 --   spec = {
 --     -- import your plugins
