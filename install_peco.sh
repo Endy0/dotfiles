@@ -31,7 +31,7 @@ fi
 
 # APIのjsonデータを取得
 RELEASE_JSON=$(curl -sL "https://api.github.com/repos/$REPO/releases/tags/$TAG")
-# echo $RELEASE_JSON > release.json
+# echo $RELEASE_JSON | jq > release.json
 
 # URLを取得
 ASSET_URL=$(echo "$RELEASE_JSON" | jq '.assets[] | {name:.name, url:.browser_download_url}' | jq "select(.name == \"${ASSET_PATTERN}\")" | jq -r '.url')
