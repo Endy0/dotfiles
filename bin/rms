@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for file in "$@"; do
+  if [ -L "$file" ]; then
+    rm "$file"
+  else
+    echo "Error: '$file' is not a symbolic link" >&22
+  fi
+done
