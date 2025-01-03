@@ -1,4 +1,10 @@
 #!/bin/bash
 # https://hub.docker.com/r/verilator/verilator
 
-docker container run -ti -v ${PWD}:/work --user $(id -u):$(id -g) --rm verilator/verilator $@
+if [ -z "${SYSTEMC_HOME}" ]; then
+  echo "You cannot use SystemC due to \$SYSTEMC_HOME environment variable isn't set"
+else
+  SYSTEMC_ENVS="-e SYSTEMC_INCLUDE=${SYSTEMC_HOME}/src -e SYSTEMC_LIBDIR=${SYSTEMC_HOME}/lib-linux64"
+fi
+
+docker container run -ti -v ${PWD}:/work --user $(id -u):$(id -g) ${SYSTEMC_ENVS} --rm verilator/verilator $@
