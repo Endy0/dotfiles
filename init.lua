@@ -52,6 +52,17 @@ vim.keymap.set('v', ';', ':')
 vim.keymap.set('v', [[']], ';')
 
 -----------------------------
+-- コメント行で改行したときにコメントを引き継ぐ機能をoff
+-----------------------------
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove("r")
+    vim.opt_local.formatoptions:remove("o")
+  end,
+})
+
+-----------------------------
 -- package manager (https://github.com/folke/lazy.nvim)
 -----------------------------
 require("config.lazy")
