@@ -1,4 +1,3 @@
 # 各々のインストールスクリプトにより個別にインストールされるべき
 /bin/sheldon
 /bin/peco
-/bin/lua-language-server-env/
