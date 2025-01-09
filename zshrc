@@ -36,6 +36,12 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # 入力なしの状態でCtrl-dを押してもログアウトしないようにする
 set -o ignoreeof
 
+# C/C++コンパイラ設定
+export CC="gcc"
+export CXX="g++"
+export CFLAGS="-O2 -Wall"
+export CXXFLAGS="-std=c++17 -O2 -Wall"
+
 ##### alias #####
 # vim系
 if type "nvim" > /dev/null 2>&1; then
@@ -58,11 +64,6 @@ alias ll='ls -lh'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-
-# Verilator環境
-if [ -d /usr/local/verilator/v4.202/bin/ ]; then
-  export PATH=$PATH:/usr/local/verilator/v4.202/bin
-fi
 
 # ssh-agentの自動起動
 # WSLなら、Windows側のOpenSSHを利用する
