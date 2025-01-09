@@ -1,0 +1,4 @@
+#!/bin/bash
+# https://hub.docker.com/_/haskell
+
+docker container run -it --rm haskell $@
