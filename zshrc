@@ -86,3 +86,9 @@ export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export PATH="${PYENV_ROOT}/bin:$PATH"
 # eval "$(pyenv init --path)"
+
+# SystemC environment
+if [ -d ${XDG_DATA_HOME}/systemc/systemc-3.0.1 ]; then
+  export SYSTEMC_HOME=${XDG_DATA_HOME}/systemc/systemc-3.0.1
+  export LD_LIBRARY_PATH=${SYSTEMC_HOME}/lib-linux64:${LD_LIBRARY_PATH}
+fi
