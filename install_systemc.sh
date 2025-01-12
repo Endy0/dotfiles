@@ -10,6 +10,18 @@ if ! which jq > /dev/null 2>&1; then
   exit 1
 fi
 
+# doxygen/graphvizがインストールされているか確認(document生成に必要)
+if ! which doxygen > /dev/null 2>&1; then
+  echo "Error: doxygen is not installed. Please install it first."
+  echo "sudo apt install doxygen"
+  exit 1
+fi
+if ! which dot > /dev/null 2>&1; then
+  echo "Error: graphviz(command: dot) is not installed. Please install it first."
+  echo "sudo apt install graphviz"
+  exit 1
+fi
+
 # tagリストを取得
 TAG_LIST=($(curl -s "https://api.github.com/repos/$REPO/tags" | jq -r '.[].name'))
 
@@ -70,6 +82,10 @@ cd objdir
 make
 make check
 make install
+
+# doxygenでドキュメント生成
+cd docs
+make doxygen
 
 echo "Install completed."
 echo "You need to specify the following to use SystemC:"
