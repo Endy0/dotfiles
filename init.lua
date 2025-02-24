@@ -50,6 +50,8 @@ vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', [[']], ';')
 vim.keymap.set('v', ';', ':')
 vim.keymap.set('v', [[']], ';')
+vim.keymap.set('n', '<C-k>', '<cmd>bprev<CR>')
+vim.keymap.set('n', '<C-j>', '<cmd>bnext<CR>')
 
 -----------------------------
 -- コメント行で改行したときにコメントを引き継ぐ機能をoff
