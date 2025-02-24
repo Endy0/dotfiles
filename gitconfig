@@ -8,3 +8,5 @@
   cm = commit
   st = status -s
   lg = log --pretty=format:'%h - %ad : %s' --graph
+[init]
+  defaultBranch = main
