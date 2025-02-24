@@ -6,6 +6,7 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
 local lsp_servers = {
   'lua_ls',
+  'clangd'
 }
 
 return {
@@ -24,10 +25,10 @@ return {
       require('lspconfig')[lsp_server].setup({})
     end
 
-    vim.keymap.set('n', '<leader>d', '<cmd>:lua vim.lsp.buf.definition()<CR>')
-    vim.keymap.set('n', '<leader>r', '<cmd>:lua vim.lsp.buf.references()<CR>')
-    vim.keymap.set('n', '<leader>R', '<cmd>:lua vim.lsp.buf.rename()<CR>')
-    vim.keymap.set('n', '<leader>h', '<cmd>:lua vim.lsp.buf.hover()<CR>')
-    vim.keymap.set('n', '<leader>f', '<cmd>:lua vim.lsp.buf.formatting()<CR>')
+    vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')
+    vim.keymap.set('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    vim.keymap.set('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
   end,
 }
