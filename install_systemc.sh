@@ -1,7 +1,6 @@
 #!/bin/bash
 
 REPO="accellera-official/systemc"
-ASSET_PATTERN="peco_linux_amd64.tar.gz"
 
 # jqがインストールされているか確認
 if ! which jq > /dev/null 2>&1; then
