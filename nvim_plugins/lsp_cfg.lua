@@ -2,7 +2,7 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim
 -- https://github.com/neovim/nvim-lspconfig
 
--- LSP server list
+-- LSP server list installed by mason automatically
 -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
 local lsp_servers = {
   'lua_ls',
@@ -24,6 +24,10 @@ return {
     for _, lsp_server in ipairs(lsp_servers) do
       require('lspconfig')[lsp_server].setup({})
     end
+    -- only rust-analyzer was installed by using rustup, not mason
+    require('lspconfig').rust_analyzer.setup({
+      cmd = {'rust-analyzer'},
+    })
 
     vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
     vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')
