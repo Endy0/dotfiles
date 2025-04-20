@@ -4,6 +4,14 @@ return {
   -- https://github.com/nvim-tree/nvim-web-devicons
   dependencies = {'nvim-tree/nvim-web-devicons'},
   opts = {
-    options = { theme = 'ayu_dark' }
+    options = { theme = 'ayu_dark' },
+    tabline = {
+      lualine_a = {
+        {
+          'buffers',
+          mode = 4
+        }
+      }
+    }
   }
 }
