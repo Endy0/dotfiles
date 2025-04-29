@@ -74,6 +74,25 @@ alias cp='cp -i'
 mcd() {
   mkdir -p "$1" && cd "$1"
 }
+# my pushd/popd/dirs
+mypushd() {
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    pushd "+$1"
+  else
+    pushd "$@"
+  fi
+}
+mypopd() {
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    popd "+$1"
+  else
+    popd "$@"
+  fi
+}
+alias pd='mypushd'
+alias ppd='mypopd'
+alias dirs='dirs -v'
+alias dr='dirs -v'
 
 # ssh-agentの自動起動
 # WSLなら、Windows側のOpenSSHを利用する
