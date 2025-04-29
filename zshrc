@@ -56,14 +56,24 @@ else
   alias vi='vim'
   alias view='vim -R'
 fi
+# cd系
+alias c='cd'
 # ls系
+alias l='ls --color=auto'
 alias ls='ls --color=auto'
-alias la='ls -a'
+alias la='ls -A'
 alias ll='ls -lh'
+alias lla='ls -lhA'
+alias lr='ls -ltrh'
+alias lra='ls -ltrhA'
 # 処理確認
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+# ディレクトリを作ってそれに移動
+mcd() {
+  mkdir -p "$1" && cd "$1"
+}
 
 # ssh-agentの自動起動
 # WSLなら、Windows側のOpenSSHを利用する
