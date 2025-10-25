@@ -52,6 +52,13 @@ vim.keymap.set('v', ';', ':')
 vim.keymap.set('v', [[']], ';')
 vim.keymap.set('n', '<C-k>', '<cmd>bprev<CR>')
 vim.keymap.set('n', '<C-j>', '<cmd>bnext<CR>')
+vim.keymap.set('n', '*', function() -- *でのカーソル位置単語検索時にカーソルが飛ばないようにする
+  local word = vim.fn.expand('<cword>')
+  if word ~= '' then
+    vim.fn.setreg('/', '\\V\\<' .. vim.fn.escape(word, '\\') .. '\\>')
+    vim.opt.hlsearch = true
+  end
+end, { noremap = true, silent = true })
 
 -----------------------------
 -- コメント行で改行したときにコメントを引き継ぐ機能をoff
