@@ -6,6 +6,9 @@ export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
 
+# Snapでインストールしたアプリケーションのディレクトリに$PATHを通す
+export PATH=$PATH:/snap/bin
+
 # 自作コマンドディレクトリに$PATHを通す
 export PATH=$PATH:$HOME/bin
 
