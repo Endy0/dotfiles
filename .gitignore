@@ -1,3 +1,4 @@
 # 各々のインストールスクリプトにより個別にインストールされるべき
 /bin/sheldon
 /bin/peco
+/bin/rclone
