@@ -46,6 +46,9 @@ vim.opt.scroll = 10
 -----------------------------
 -- remap
 -----------------------------
+vim.keymap.set('i', '<C-l>', '<C-c>')
+vim.keymap.set('v', '<C-l>', '<C-c>')
+vim.keymap.set('c', '<C-l>', '<C-c>')
 vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', [[']], ';')
 vim.keymap.set('v', ';', ':')
