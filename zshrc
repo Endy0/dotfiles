@@ -111,14 +111,6 @@ setopt no_beep
 # lessのビープ音を消す&色のエスケープシーケンスを解釈して色付きで出力
 export LESS=-Rq
 
-# Java
-export JAVA_HOME=$(readlink -f $(which java) | sed "s/\/bin\/java//g")
-
-# Python version manager
-export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
-export PATH="${PYENV_ROOT}/bin:$PATH"
-# eval "$(pyenv init --path)"
-
 # SystemC environment
 if [ -d ${XDG_DATA_HOME}/systemc/systemc-3.0.1 ]; then
   export SYSTEMC_HOME=${XDG_DATA_HOME}/systemc/systemc-3.0.1
