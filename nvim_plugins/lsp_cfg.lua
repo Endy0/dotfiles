@@ -1,34 +1,32 @@
--- https://github.com/williamboman/mason.nvim
--- https://github.com/williamboman/mason-lspconfig.nvim
+-- https://github.com/mason-org/mason-lspconfig.nvim
+-- https://github.com/mason-org/mason.nvim
 -- https://github.com/neovim/nvim-lspconfig
 
 -- LSP server list installed by mason automatically
--- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
-local lsp_servers = {
+-- https://github.com/mason-org/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
+local mason_lsp_servers = {
   'lua_ls',
   'clangd',
+  'ts_ls',
   'svls',
 }
 
 return {
-  'williamboman/mason.nvim',
+  'mason-org/mason-lspconfig.nvim',
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig'
+    { 'mason-org/mason.nvim', opts = {} },
+    'neovim/nvim-lspconfig',
   },
   config = function()
     require('mason').setup()
     require('mason-lspconfig').setup({
-      ensure_installed = lsp_servers,
+      ensure_installed = mason_lsp_servers,
+      automatic_enable = true,
     })
-
-    vim.lsp.config('*', {})
-    vim.lsp.enable(lsp_servers)
 
     -- only rust-analyzer was installed by using rustup, not mason
-    require('lspconfig').rust_analyzer.setup({
-      cmd = {'rust-analyzer'},
-    })
+    -- vim.lsp.config('rust_analyzer', {})
+    vim.lsp.enable({'rust_analyzer'})
 
     vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
     vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')
